@@ -256,14 +256,14 @@ if __name__ == '__main__':
 
             table_start = time.time()
             for res in table_res_list:
-                new_image, _ = crop_img(res, pil_img)
+                # new_image, _ = crop_img(res, pil_img)
 
-                single_table_start = time.time()
-                with torch.no_grad():
-                    output = tr_model(new_image)
-                if (time.time() - single_table_start) > model_configs['model_args']['table_max_time']:
-                    res["timeout"] = True
-                res["latex"] = output[0]
+                # single_table_start = time.time()
+                # with torch.no_grad():
+                #     output = tr_model(new_image)
+                # if (time.time() - single_table_start) > model_configs['model_args']['table_max_time']:
+                #     res["timeout"] = True
+                res["latex"] = 'extra'
             table_cost = round(time.time() - table_start, 2)
             print(f"table cost: {table_cost}")
 
